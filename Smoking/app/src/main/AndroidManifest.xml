@@ -8,6 +8,19 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Smoking" />
+        android:theme="@style/Theme.Smoking">
+
+        <!-- 앱 실행 시 처음 열리는 화면 -->
+        <!-- targetSdk 31 이상에서는 intent-filter가 있는 Activity에 exported를 반드시 적어야 한다 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
 
 </manifest>

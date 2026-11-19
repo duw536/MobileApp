@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Smoking</string>
+    <string name="main_title">금연 관리</string>
+    <string name="main_message">앱이 정상적으로 실행되었습니다.</string>
 </resources>
