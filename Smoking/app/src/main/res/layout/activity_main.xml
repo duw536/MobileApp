@@ -1,25 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/textTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/main_title"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:padding="24dp">
 
-    <TextView
-        android:id="@+id/textMessage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/main_message"
-        android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="금연 관리"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="현재 흡연 정보를 입력해 주세요"
+            android:textSize="14sp" />
+
+        <!-- 흡연량 입력 방식 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="흡연량 입력 방식"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgSmokingMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbDaily"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="하루 기준" />
+
+            <RadioButton
+                android:id="@+id/rbPeriod"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="일정 기간 기준" />
+        </RadioGroup>
+
+        <!-- 기간 (일정 기간 기준일 때만 표시) -->
+        <LinearLayout
+            android:id="@+id/layoutPeriod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기간 (일)"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPeriodDays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="예: 3"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="4" />
+        </LinearLayout>
+
+        <!-- 흡연량 -->
+        <TextView
+            android:id="@+id/tvAmountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="하루 평균 흡연량 (개비)"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etSmokingAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="예: 10"
+            android:importantForAutofill="no"
+            android:inputType="numberDecimal"
+            android:maxLength="6" />
+
+        <!-- 담배 가격 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="담배 한 갑 가격 (원)"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etCigarettePrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="예: 4500"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="7" />
+
+        <!-- 한 갑당 개비 수 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="한 갑당 개비 수"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etCigarettesPerPack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="기본값 20"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:maxLength="3" />
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:text="금연 시작"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</ScrollView>
