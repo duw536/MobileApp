@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         if (prefs.getBoolean(KEY_IS_STARTED, false)) {
-//            goToNextScreen();
+            goToNextScreen();
             return;
         }
 
@@ -139,14 +139,15 @@ public class MainActivity extends AppCompatActivity {
         editor.putBoolean(KEY_IS_STARTED, true);
         editor.apply();
 
-//        goToNextScreen();
+        goToNextScreen();
     }
 
-//    private void goToNextScreen() {
-//        Intent intent = new Intent(this, 다음화면.class);
-//        startActivity(intent);
-//        finish();
-//    }
+    // 금연 현황 화면으로 이동 (뒤로 가기로 입력 화면에 돌아오지 않도록 현재 화면은 종료)
+    private void goToNextScreen() {
+        Intent intent = new Intent(this, StatusActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     private float parseFloat(String s) {
         try {

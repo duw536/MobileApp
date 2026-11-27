@@ -21,6 +21,11 @@
             </intent-filter>
         </activity>
 
+        <!-- 금연 현황 화면 -->
+        <activity
+            android:name=".StatusActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>
